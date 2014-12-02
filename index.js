@@ -16,7 +16,15 @@ var fs = require('fs');
 
 var login = exports.login = function(email, password){
   return function(nightmare) {
-
+    nightmare
+      .viewport(800, 1600)
+      .goto('https://m.uber.com/')
+      .wait('a.done')
+      .wait(1000)
+      .type('#email', email)
+      .type('#password', password)
+      .click('a.done')
+      .wait('.show-eta');
   };
 };
 
@@ -29,7 +37,7 @@ var login = exports.login = function(email, password){
 
 var setPickup = exports.setLocation = function(lat, lng) {
   return function(nightmare) {
-
+    // Need to figure out how to dynamically set geolocation.
   };
 };
 
@@ -53,7 +61,7 @@ var select = exports.select = function(type) {
 
 var setDropoff = exports.setDropoff = function(lat, lng) {
   return function(nightmare) {
-    // WIP
+    // Need to figure out how to dynamically set geolocation.
   };
 };
 
@@ -64,6 +72,6 @@ var setDropoff = exports.setDropoff = function(lat, lng) {
 
 var call = exports.call = function() {
   return function(nightmare) {
-
+    // Make sure pick up and drop off locations are set.
   };
 };
