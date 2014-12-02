@@ -1,7 +1,7 @@
 nightmare-uber
 =================
 
-[Nightmare](https://github.com/segmentio/nightmare) plugin for m.Uber.com
+[Nightmare](https://github.com/segmentio/nightmare) plugin for [m.Uber.com](https://m.uber.com).
 
 #### .login(email, password)
 
