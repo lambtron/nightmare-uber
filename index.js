@@ -45,7 +45,7 @@ var login = exports.login = function(email, password){
 
 var select = exports.select = function(type) {
   return function(nightmare) {
-
+    // WIP
   };
 };
 
@@ -66,7 +66,8 @@ var setPickup = exports.setLocation = function(location) {
       .wait(1000)
       .click('.search-results > ul:nth-child(1) > li > a')
       .wait('.set')
-      .wait(500);
+      .wait(500)
+      .click('.set');
   };
 };
 
@@ -82,7 +83,16 @@ var setDropoff = exports.setDropoff = function(location) {
   if (location.lat && location.lng)
     address = reverseGeocode(location.lat, location.lng);
   return function(nightmare) {
-
+    nightmare
+      .exists('a.btn', function(ready) {
+        if (!ready) throw 'Set drop off box not ready';
+        return;
+      })
+      .click('a.btn')
+      .type('input[name="search"]', address)
+      .click('.search-results > ul:nth-child(1) > li > a')
+      .wait('a.accept')
+      .wait(500);
   };
 };
 
@@ -93,7 +103,7 @@ var setDropoff = exports.setDropoff = function(location) {
 
 var call = exports.call = function() {
   return function(nightmare) {
-    // Make sure pick up and drop off locations are set.
+
   };
 };
 
