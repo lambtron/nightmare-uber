@@ -39,6 +39,17 @@ var login = exports.login = function(email, password){
 };
 
 /**
+ * Select type of car.
+ *
+ */
+
+var select = exports.select = function(type) {
+  return function(nightmare) {
+
+  };
+};
+
+/**
  * Set pick up location (lat & lng).
  *
  * @param {String} location (address)
@@ -70,17 +81,6 @@ var setDropoff = exports.setDropoff = function(location) {
   var address = location;
   if (location.lat && location.lng)
     address = reverseGeocode(location.lat, location.lng);
-  return function(nightmare) {
-
-  };
-};
-
-/**
- * Select type of car.
- *
- */
-
-var select = exports.select = function(type) {
   return function(nightmare) {
 
   };
