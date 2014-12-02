@@ -120,7 +120,7 @@ var call = exports.call = function() {
   return function(nightmare) {
     nightmare
       .exists('a.accept', function(ready) {
-        if (!ready) throw 'Unable to call Uber';
+        if (!ready) throw 'Unable to call Uber.';
         return;
       })
       .click('a.accept');
