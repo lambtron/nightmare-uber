@@ -24,18 +24,25 @@ var login = exports.login = function(email, password){
       .type('#email', email)
       .type('#password', password)
       .click('a.done')
-      .wait('.show-eta');
+      .wait('.show-eta')
+      .wait(10000)
+      .evaluate(function() {
+        var overlay = document.querySelector('.dialog-overlay');
+        var parent = overlay.parentNode;
+        parent.removeChild(overlay);
+      }, function() {
+      });
   };
 };
 
 /**
  * Set pick up location (lat & lng).
  *
- * @param {Int} lat
- * @param {Int} lng
+ * @param {String} location
+ * @param {Object} location
  */
 
-var setPickup = exports.setLocation = function(lat, lng) {
+var setPickup = exports.setLocation = function(location) {
   return function(nightmare) {
     // Need to figure out how to dynamically set geolocation.
   };
@@ -74,4 +81,30 @@ var call = exports.call = function() {
   return function(nightmare) {
     // Make sure pick up and drop off locations are set.
   };
+};
+
+/**
+ * Private function to inject fake geolocation into browser.
+ *
+ * @param {[type]} self
+ * @param {[type]} latitude
+ * @param {[type]} longitude
+ */
+
+var addFakeGeolocation = function(self, latitude, longitude) {
+  self.evaluate(function() {
+    window.navigator.geolocation = function() {
+      var pub = {};
+      var current_pos = {
+        coords: {
+          latitude: window.__casper_params__.latitude,
+          longitude: window.__casper_params__.longitude
+        }
+      };
+      pub.getCurrentPosition = function(locationCallback, errorCallback) {
+        locationCallback(current_pos);
+      };
+      return pub;
+    }();
+  }, { latitude: latitude, longitude: longitude });
 };
