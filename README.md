@@ -19,7 +19,7 @@ This must be called prior to `.setDropoff()`.
 
 #### .setDropoff(location)
 
-Set the drop off location with similar methodologies applied as for `.setPickup()`.
+Set the drop off location with similar methods applied in `.setPickup()`.
 
 #### .getFare(cb)
 
