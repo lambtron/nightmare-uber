@@ -5,15 +5,29 @@ nightmare-uber
 
 #### .login(email, password)
 
-Login to Uber.
-
-#### .setPickup(lat, lng)
-
-#### .setDropoff(lat, lng)
+Login to Uber. Note that this must be called first.
 
 #### .select(type)
 
+Select the type of Uber: `uberpool`, `uberx`, `uberxl`, `blackcar`, `suv`, `taxi`. Note the type is a case insensitive string. Note that this should be called before the other functions, as you aren't able to change this option after `.setPickup()` or `.setDropoff()` are called.
+
+#### .setPickup(location)
+
+Set the pick up location. The `location` can either be an object with `lat` and `lng` properties (each a float value) or a string of an address. If `lat` and `lng` are passed, they will be resolved to an address via reverse geocoding.
+
+This must be called prior to `.setDropoff()`.
+
+#### .setDropoff(location)
+
+Set the drop off location with similar methodologies applied as for `.setPickup()`.
+
+#### .getFare(cb)
+
+Get fare estimates. Assumes that both `setPickup()` and `setDropoff()` have been called. Callback expression is `cb(fare)`.
+
 #### .call()
+
+Call the car. Note that `.setPickup()` must have been called; if you selected `uberpool`, then `.setDropoff()` must also have been called.
 
 ## License (MIT)
 
