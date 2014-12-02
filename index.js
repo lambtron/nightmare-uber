@@ -97,13 +97,27 @@ var setDropoff = exports.setDropoff = function(location) {
 };
 
 /**
+ * Get fare estimates.
+ */
+
+var getFare = exports.getFare = function() {
+  return function(nightmare) {
+
+  };
+};
+
+/**
  * Call Uber
- *
  */
 
 var call = exports.call = function() {
   return function(nightmare) {
-
+    nightmare
+      .exists('a.accept', function(ready) {
+        if (!ready) throw 'Unable to call Uber';
+        return;
+      })
+      .click('a.accept');
   };
 };
 
