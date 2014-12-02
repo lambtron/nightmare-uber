@@ -3,17 +3,17 @@ nightmare-uber
 
 [Nightmare](https://github.com/segmentio/nightmare) plugin for m.Uber.com
 
-### .login(email, password)
+#### .login(email, password)
 
 Login to Uber.
 
-### .setPickup(lat, lng)
+#### .setPickup(lat, lng)
 
-### .setDropoff(lat, lng)
+#### .setDropoff(lat, lng)
 
-### .select(type)
+#### .select(type)
 
-### .call()
+#### .call()
 
 ## License (MIT)
 

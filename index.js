@@ -41,6 +41,7 @@ var login = exports.login = function(email, password){
 /**
  * Select type of car.
  *
+ * TODO
  */
 
 var select = exports.select = function(type) {
@@ -98,16 +99,25 @@ var setDropoff = exports.setDropoff = function(location) {
 
 /**
  * Get fare estimates.
+ *
+ * TODO
  */
 
 var getFare = exports.getFare = function() {
   return function(nightmare) {
-
+    nightmare
+      .click('a.fare-quote');
+      // if 'div.quote', then get quote
+      // otherwise, set drop off location and then get quote.
+      //
+      // document.querySelector('div.quote > span')
   };
 };
 
 /**
  * Call Uber
+ *
+ * TODO: improve
  */
 
 var call = exports.call = function() {
