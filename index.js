@@ -5,6 +5,9 @@
 
 var exec = require('child_process').exec;
 var request = require('superagent');
+var thunkify = require('thunkify');
+var Geocoder = require('geocoder');
+var geo = thunkify(Geocode);
 var fs = require('fs');
 
 /**
@@ -38,24 +41,27 @@ var login = exports.login = function(email, password){
 /**
  * Set pick up location (lat & lng).
  *
- * @param {String} location
- * @param {Object} location
+ * @param {String} location (address)
+ * @param {Object} location (lat, lng)
  */
 
 var setPickup = exports.setLocation = function(location) {
   return function(nightmare) {
-    // Need to figure out how to dynamically set geolocation.
+    var address = location;
+    if (location.lat && location.lng)
+      address = '';
+
   };
 };
 
 /**
  * Set drop off location (lat & lng)
  *
- * @param {Int} lat
- * @param {Int} lng
+ * @param {String} location (address)
+ * @param {Object} location (lat, lng)
  */
 
-var setDropoff = exports.setDropoff = function(lat, lng) {
+var setDropoff = exports.setDropoff = function(location) {
   return function(nightmare) {
     // Need to figure out how to dynamically set geolocation.
   };
@@ -84,27 +90,13 @@ var call = exports.call = function() {
 };
 
 /**
- * Private function to inject fake geolocation into browser.
+ * Private function to reverse geocode lat, lng.
  *
- * @param {[type]} self
- * @param {[type]} latitude
- * @param {[type]} longitude
+ * @param {Integer} lat
+ * @param {Integer} lng
  */
 
-var addFakeGeolocation = function(self, latitude, longitude) {
-  self.evaluate(function() {
-    window.navigator.geolocation = function() {
-      var pub = {};
-      var current_pos = {
-        coords: {
-          latitude: window.__casper_params__.latitude,
-          longitude: window.__casper_params__.longitude
-        }
-      };
-      pub.getCurrentPosition = function(locationCallback, errorCallback) {
-        locationCallback(current_pos);
-      };
-      return pub;
-    }();
-  }, { latitude: latitude, longitude: longitude });
-};
+function reverseGeocode(lat, lng) {
+
+  return address;
+}

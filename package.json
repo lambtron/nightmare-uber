@@ -13,7 +13,9 @@
     "url": "https://github.com/segmentio/nightmare-uber.git"
   },
   "dependencies": {
-    "superagent": "~0.17.0"
+    "geocoder": "^0.2.0",
+    "superagent": "~0.17.0",
+    "thunkify": "^2.1.2"
   },
   "devDependencies": {}
 }
