@@ -46,11 +46,16 @@ var login = exports.login = function(email, password){
  */
 
 var setPickup = exports.setLocation = function(location) {
+  var address = location;
+  if (location.lat && location.lng)
+    address = reverseGeocode(location.lat, location.lng);
   return function(nightmare) {
-    var address = location;
-    if (location.lat && location.lng)
-      address = '';
-
+    nightmare
+      .type('input[name="search"]', address)
+      .wait(1000)
+      .click('.search-results > ul:nth-child(1) > li > a')
+      .wait('.set')
+      .wait(500);
   };
 };
 
@@ -62,8 +67,11 @@ var setPickup = exports.setLocation = function(location) {
  */
 
 var setDropoff = exports.setDropoff = function(location) {
+  var address = location;
+  if (location.lat && location.lng)
+    address = reverseGeocode(location.lat, location.lng);
   return function(nightmare) {
-    // Need to figure out how to dynamically set geolocation.
+
   };
 };
 
