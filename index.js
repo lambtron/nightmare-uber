@@ -57,10 +57,8 @@ var select = exports.select = function(type) {
  * @param {Object} location (lat, lng)
  */
 
-var setPickup = exports.setLocation = function(location) {
-  var address = location;
-  if (location.lat && location.lng)
-    address = reverseGeocode(location.lat, location.lng);
+var setPickup = exports.setPickup = function *(location) {
+  var address = yield getAddress(location);
   return function(nightmare) {
     nightmare
       .type('input[name="search"]', address)
@@ -79,10 +77,8 @@ var setPickup = exports.setLocation = function(location) {
  * @param {Object} location (lat, lng)
  */
 
-var setDropoff = exports.setDropoff = function(location) {
-  var address = location;
-  if (location.lat && location.lng)
-    address = reverseGeocode(location.lat, location.lng);
+var setDropoff = exports.setDropoff = function *(location) {
+  var address = yield getAddress(location);
   return function(nightmare) {
     nightmare
       .exists('a.btn', function(ready) {
@@ -141,4 +137,17 @@ var call = exports.call = function() {
 function *reverseGeocode(lat, lng) {
   var geos = yield geo.reverseGeocode(lat, lng);
   return geos.results[0].formatted_address;
+}
+
+/**
+ * Private function to get address from location.
+ *
+ * @param {String or Object} location
+ */
+
+function *getAddress(location) {
+  var address = location;
+  if (location.lat && location.lng)
+    address = yield reverseGeocode(location.lat, location.lng);
+  return address;
 }
