@@ -7,7 +7,13 @@ nightmare-uber
 
 Login to Uber.
 
-TODO
+### .setPickup(lat, lng)
+
+### .setDropoff(lat, lng)
+
+### .select(type)
+
+### .call()
 
 ## License (MIT)
 
