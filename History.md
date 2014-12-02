@@ -1,8 +1,8 @@
 
-0.0.1 / 2014-11-30
+0.0.1 / 2014-12-01
 ==================
 
   * setting up package.json
-  * adding in basic plugin
-  * updating readme/scaffolding
+  * added basic functions
+  * updating readme
   * Initial commit
