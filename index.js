@@ -96,7 +96,7 @@ var call = exports.call = function() {
  * @param {Integer} lng
  */
 
-function reverseGeocode(lat, lng) {
-
-  return address;
+function *reverseGeocode(lat, lng) {
+  var geos = yield geo.reverseGeocode(lat, lng);
+  return geos.results[0].formatted_address;
 }
