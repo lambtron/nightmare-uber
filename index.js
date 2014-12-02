@@ -42,17 +42,6 @@ var setPickup = exports.setLocation = function(lat, lng) {
 };
 
 /**
- * Select type of car.
- *
- */
-
-var select = exports.select = function(type) {
-  return function(nightmare) {
-
-  };
-};
-
-/**
  * Set drop off location (lat & lng)
  *
  * @param {Int} lat
@@ -62,6 +51,17 @@ var select = exports.select = function(type) {
 var setDropoff = exports.setDropoff = function(lat, lng) {
   return function(nightmare) {
     // Need to figure out how to dynamically set geolocation.
+  };
+};
+
+/**
+ * Select type of car.
+ *
+ */
+
+var select = exports.select = function(type) {
+  return function(nightmare) {
+
   };
 };
 
