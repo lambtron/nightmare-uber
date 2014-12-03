@@ -9,7 +9,7 @@ Login to Uber. Note that this must be called first.
 
 #### .select(type)
 
-_(Untested)_ Select the type of Uber: `uberpool`, `uberx`, `uberxl`, `blackcar`, `suv`, `taxi`. Note the type is a case insensitive string. Note that this should be called before the other functions, as you aren't able to change this option after `.setPickup()` or `.setDropoff()` are called.
+_(Untested)_ Select the type of Uber: `uberpool`, `uberx`, `uberxl`, `blackcar`, `suv`, or `taxi`. Note the type is a case insensitive string. Note that this should be called before the other functions, as you aren't able to change this option after `.setPickup()` or `.setDropoff()` are called.
 
 #### .setPickup(location)
 
