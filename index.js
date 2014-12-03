@@ -6,7 +6,7 @@
 var exec = require('child_process').exec;
 var thunkify = require('thunkify');
 var Geocoder = require('geocoder');
-var geo = thunkify(Geocode);
+var geo = thunkify(Geocoder);
 
 /**
  * Login to an Uber account.
