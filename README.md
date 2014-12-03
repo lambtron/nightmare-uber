@@ -23,7 +23,7 @@ _(Untested)_ Set the drop off location with similar methods applied in `.setPick
 
 #### .getFare(cb)
 
-_(Work in progress)_ Get fare estimates. Assumes that both `setPickup()` and `setDropoff()` have been called. Callback expression is `cb(fare)`.
+_(Untested)_ Get fare estimates. Assumes that both `setPickup()` and `setDropoff()` have been called. Callback expression is `cb(fare)`.
 
 #### .call()
 

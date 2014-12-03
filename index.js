@@ -94,17 +94,17 @@ var setDropoff = exports.setDropoff = function *(location) {
 /**
  * Get fare estimates.
  *
- * TODO
+ * @param {Function} callback
  */
 
-var getFare = exports.getFare = function() {
+var getFare = exports.getFare = function(callback) {
   return function(nightmare) {
     nightmare
-      .click('a.fare-quote');
-      // if 'div.quote', then get quote
-      // otherwise, set drop off location and then get quote.
-      //
-      // document.querySelector('div.quote > span')
+      .click('a.fare-quote')
+      .evaluate(function() {
+      }, function(fare) {
+        callback(fare);
+      });
   };
 };
 
