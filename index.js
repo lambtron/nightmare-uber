@@ -4,11 +4,9 @@
  */
 
 var exec = require('child_process').exec;
-var request = require('superagent');
 var thunkify = require('thunkify');
 var Geocoder = require('geocoder');
 var geo = thunkify(Geocode);
-var fs = require('fs');
 
 /**
  * Login to an Uber account.
