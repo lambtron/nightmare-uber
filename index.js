@@ -39,12 +39,23 @@ var login = exports.login = function(email, password){
 /**
  * Select type of car.
  *
- * TODO
+ * @param {String} type
  */
 
 var select = exports.select = function(type) {
+  var mapping = {
+    uberpool: 1,
+    uberx: 2,
+    uberxl: 3,
+    blackcar: 4,
+    suv: 5,
+    taxi: 6
+  };
+  var nth = mapping[type.toLowerCase()];
   return function(nightmare) {
-    // WIP
+    nightmare
+      .click('div.vehicle-selector > ul >li.nth-child(' + nth + ')')
+      .wait(100);
   };
 };
 
