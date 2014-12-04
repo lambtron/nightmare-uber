@@ -15,7 +15,7 @@
   "dependencies": {
     "geocoder": "^0.2.0",
     "nightmare": "^1.6.5",
-    "thunkify": "^2.1.2"
+    "thunkify-wrap": "^1.0.4"
   },
   "devDependencies": {}
 }

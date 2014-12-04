@@ -4,7 +4,7 @@
  */
 
 var exec = require('child_process').exec;
-var thunkify = require('thunkify');
+var thunkify = require('thunkify-wrap');
 var Geocoder = require('geocoder');
 var geo = thunkify(Geocoder);
 
