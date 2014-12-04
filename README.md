@@ -1,7 +1,7 @@
 nightmare-uber
 =================
 
-[Nightmare](https://github.com/segmentio/nightmare) plugin for [m.Uber.com](https://m.uber.com). Requires `node 0.11.x` and `node --harmony` to run.
+[Nightmare](https://github.com/segmentio/nightmare) plugin for [m.Uber.com](https://m.uber.com). Requires `node 0.11.x` and `node --harmony` to run. Please refer to the [examples](https://github.com/lambtron/nightmare-uber/tree/master/examples) for more information.
 
 #### .login(email, password)
 
